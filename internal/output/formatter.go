@@ -53,6 +53,17 @@ func (f *Formatter) Write(e Entry) error {
 	}
 }
 
+// WriteAll formats and writes multiple entries to the underlying writer,
+// stopping and returning the first error encountered.
+func (f *Formatter) WriteAll(entries []Entry) error {
+	for _, e := range entries {
+		if err := f.Write(e); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 func (f *Formatter) writeText(e Entry) error {
 	var sb strings.Builder
 	if !e.Timestamp.IsZero() {
