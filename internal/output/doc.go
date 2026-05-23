@@ -21,5 +21,12 @@
 //		fmt.Println(line)
 //	}
 //
+// # Format Constants
+//
+// Use [FormatText] for terminal output and [FormatJSON] for structured
+// pipelines. The zero value of [Format] defaults to [FormatText].
+//
+// # Concurrency
+//
 // Formatters are safe for concurrent use.
 package output
